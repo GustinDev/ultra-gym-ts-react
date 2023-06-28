@@ -4,3 +4,9 @@ export enum SelectedPage {
   Clases = "clases",
   Contáctanos = "contactanos",
 }
+
+export interface ClassType {
+  name: string;
+  description?: string;
+  image: string;
+}
