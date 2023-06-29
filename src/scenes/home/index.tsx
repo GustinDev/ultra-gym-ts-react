@@ -5,7 +5,6 @@ import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 //IMG
 import HomePageGraphic from "@/assets/InicioImg.png";
-import HomePageText from "@/assets/HomePageText.png";
 import Nordictrack from "@/assets/Nordictrack.png";
 import LifeFitness from "@/assets/Life.png";
 import Cybex from "@/assets/Cybex.svg";
