@@ -11,6 +11,7 @@ body,
   height: 100%;
   width: 100%;
   font-family: "DM Sans", sans-serif;
-  @apply text-gray-500;
+  @apply text-title-color;
+  background-color: #f8f4eb;
   /* El apply es para poner cosas por default en tw */
 }

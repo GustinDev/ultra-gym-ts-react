@@ -51,7 +51,7 @@ const Classes = ({ setSelectedPage }: Props) => {
   const textTitle = "basis-3/5 font-montserrat text-3xl font-bold";
 
   return (
-    <section className=" bg-gray-20 py-40">
+    <section id="clases" className=" bg-gray-20 py-40">
       <motion.div
         className="mx-auto w-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.Clases)}

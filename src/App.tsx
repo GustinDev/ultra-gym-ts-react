@@ -4,6 +4,8 @@ import Benefits from "@/scenes/benefits";
 import { useState, useEffect } from "react";
 import { SelectedPage } from "./shared/types";
 import Classes from "./scenes/classes";
+import ContactUs from "./scenes/contact";
+import Footer from "./scenes/footer/index";
 
 function App() {
   //Restringimos a que solo podemos pasar las opciones de arriba. Le pasamos Inicio por defecto. Modificamos todos los props.
@@ -37,6 +39,8 @@ function App() {
       <Home setSelectedPage={setSelectedPage} />
       <Benefits setSelectedPage={setSelectedPage} />
       <Classes setSelectedPage={setSelectedPage} />
+      <ContactUs setSelectedPage={setSelectedPage} />
+      <Footer />
     </div>
   );
 }

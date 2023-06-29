@@ -1,23 +1,20 @@
 //Standard Imports
-import useMediaQuery from "@/hooks/useMediaQuery";
+
 import ActionButton from "@/shared/ActionButton";
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 //IMG
 import HomePageGraphic from "@/assets/InicioImg.png";
 import HomePageText from "@/assets/HomePageText.png";
-import SponsorRedBull from "@/assets/SponsorRedBull.png";
-import SponsorForbes from "@/assets/SponsorForbes.png";
-import SponsorFortune from "@/assets/SponsorFortune.png";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import Nordictrack from "@/assets/Nordictrack.png";
+import LifeFitness from "@/assets/Life.png";
+import Cybex from "@/assets/Cybex.svg";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
 const Home = ({ setSelectedPage }: Props) => {
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-
   return (
     <div className="p -mt-20 bg-gray-20 p-20 md:m-0">
       <section
@@ -44,14 +41,18 @@ const Home = ({ setSelectedPage }: Props) => {
               }}
             >
               <div className="relative">
-                <div className="before:absolute before:-left-20  before:-top-20  before:z-[-1] md:before:content-evolvetext">
-                  <img src={HomePageText} alt="txt" />
+                <div className="before:absolute before:-left-20  before:-right-8 before:-top-20 before:z-[-1] md:before:content-evolvetext">
+                  <h1 className="-ml-2 font-montserrat text-8xl font-bold text-home-title-color underline decoration-primary-700">
+                    ULTRAGYM
+                  </h1>
+                  <p className="font-bold text-title-color ">
+                    FUERZA Y DISCIPLINA.
+                  </p>
                 </div>
               </div>
-              <p className="mt-8 text-sm ">
-                Unrivaled Gym. Unparalleled Training Fitness Classes. World
-                Class Studios to get the Body Shapes That you Dream of.. Get
-                Your Dream Body Now.
+              <p className="mt-8 text-lg ">
+                Gimnasio de primera. Entrenamiento inigualable. Entrenadores
+                expertos. ¡Te ayudaremos a lograr tus metas!
               </p>
             </motion.div>
             {/* ACCIONES */}
@@ -67,15 +68,8 @@ const Home = ({ setSelectedPage }: Props) => {
               className="mt-8 flex items-center gap-8 font-bold md:justify-start"
             >
               <ActionButton setSelectedPage={setSelectedPage}>
-                Únete
+                Únete Ahora
               </ActionButton>
-              <AnchorLink
-                className="text-md font-bold text-primary-500 underline hover:text-secondary-500"
-                onClick={() => setSelectedPage(SelectedPage.Contáctanos)}
-                href={`#${SelectedPage.Contáctanos}`}
-              >
-                <p>Contáctanos.</p>
-              </AnchorLink>
             </motion.div>
           </div>
         </motion.div>
@@ -85,15 +79,14 @@ const Home = ({ setSelectedPage }: Props) => {
         </div>
         {/* SPONSOR */}
       </section>
-      {isAboveMediumScreens && (
-        <div className="h-[150px] w-full">
-          <div className="mx-auto flex w-5/6 items-center justify-between">
-            <img src={SponsorRedBull} height={"100px"} alt="redbull" />
-            <img src={SponsorForbes} height={"100px"} alt="redbull" />
-            <img src={SponsorFortune} height={"100px"} alt="redbull" />
-          </div>
+
+      <div className="mt-5 h-[150px] w-full">
+        <div className="mx-auto flex w-5/6 items-center justify-between">
+          <img src={Nordictrack} height={"100px"} width={"130px"} alt="nordi" />
+          <img src={LifeFitness} height={"100px"} width={"130px"} alt="life" />
+          <img src={Cybex} height={"100px"} width={"130px"} alt="Cybex" />
         </div>
-      )}
+      </div>
     </div>
   );
 };

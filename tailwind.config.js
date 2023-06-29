@@ -11,9 +11,13 @@ module.exports = {
         "primary-100": "#FFE1E0",
         "primary-300": "#FFA6A3",
         "primary-500": "#FF6B66",
+        "primary-700": "#fc4c49",
         "secondary-400": "#FFCD5B",
         "secondary-500": "#FFC132",
         "secondary-600": "#E5A81D",
+        "nav-color": "#f9ebd6",
+        "title-color": "#191001",
+        "home-title-color": "#070400",
       },
       backgroundImage: (theme) => ({
         "gradient-yellowred":

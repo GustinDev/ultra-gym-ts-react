@@ -1,33 +1,32 @@
+import ActionButton from "@/shared/ActionButton";
 import { SelectedPage } from "@/shared/types";
-import { motion } from "framer-motion";
 import {
   HomeModernIcon,
   UserGroupIcon,
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
-import BenefitItem from "./BenefitItem";
-import ActionButton from "@/shared/ActionButton";
+import { motion } from "framer-motion";
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
-
-type Props = {
-  setSelectedPage: (value: SelectedPage) => void;
-};
+import BenefitItem from "./BenefitItem";
 
 const benefits = [
   {
     icon: <HomeModernIcon className="h-6 w-6" />,
-    title: "Instalaciones Mordernas",
-    description: "Hola1",
+    title: "Espacio de Vanguardia",
+    description:
+      "Descubre un gimnasio moderno con las últimas tendencias en equipamiento y tecnología de punta.",
   },
   {
     icon: <UserGroupIcon className="h-6 w-6" />,
-    title: "Clases Diversas",
-    description: "Hola2",
+    title: "Ambiente Inspirador",
+    description:
+      " Sumérgete en un entorno contemporáneo y energizante que te motiva a alcanzar tus metas.",
   },
   {
     icon: <AcademicCapIcon className="h-6 w-6" />,
-    title: "Entrenadores expertos.",
-    description: "Hola3",
+    title: "Experiencia Personalizada",
+    description:
+      "Nuestro equipo de entrenadores te brinda un enfoque individualizado para alcanzar tus objetivos.",
   },
 ];
 
@@ -38,125 +37,130 @@ const container = {
   },
 };
 
-const Benefits = ({ setSelectedPage }: Props) => {
-  const textTitle = "basis-3/5 font-montserrat text-3xl font-bold";
+type Props = {
+  setSelectedPage: (value: SelectedPage) => void;
+};
 
+const Benefits = ({ setSelectedPage }: Props) => {
   return (
-    <div className="min-h-full bg-gray-20 ">
-      <section
-        id="benefits"
-        className="mx-auto min-h-full w-5/6 bg-gray-20 py-20 "
+    <section id="beneficios" className="mx-auto min-h-full w-5/6 py-20">
+      <motion.div
+        onViewportEnter={() => setSelectedPage(SelectedPage.Beneficios)}
       >
+        {/* HEADER */}
         <motion.div
+          className="md:-my-28 md:mb-5 md:w-3/5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           variants={{
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
           }}
-          onViewportEnter={() => setSelectedPage(SelectedPage.Beneficios)}
         >
-          <div className="md:my-5 md:w-3/5">
-            {/* HEADER */}
-            <h1 className={`${textTitle}`}>¡MÁS QUE UN GYM!</h1>
-            <p className="text.sm my-5">
-              {" "}
-              We provide world class fitness equipment, trainers and classes to
-              get you to your ultimate fitness goals with ease. We provide true
-              care into each and every member.
-            </p>
-          </div>
-          {/* BENEFITS */}
-          <motion.div
-            className="mt-5 items-center justify-between gap-8 md:flex"
-            initial="hidden"
-            whileInView="visible"
-            variants={container}
-          >
-            {benefits.map((benefit) => (
-              <BenefitItem
-                key={benefit.title}
-                icon={benefit.icon}
-                title={benefit.title}
-                description={benefit.description}
-                setSelectedPage={setSelectedPage}
-              />
-            ))}
-          </motion.div>
-          {/* GRAPHICS AND TEXT */}
-          <div className="mt-[100px] flex flex-col items-center justify-between gap-20  md:flex-row">
-            {/* GRAPHIC */}
-            <img
-              src={BenefitsPageGraphic}
-              alt="img-benef"
-              className="mx-auto"
+          <h1 className="font-montserrat text-6xl font-bold text-title-color">
+            MÁS QUE UN{" "}
+            <span className="text-primary-700 underline">GIMNASIO</span>
+          </h1>
+          <p className="text-md my-5">
+            Ofrecemos equipos de fitness de clase mundial, entrenadores y clases
+            para ayudarte a alcanzar tus objetivos de acondicionamiento físico
+            con facilidad. Brindamos una atención genuina a cada uno de nuestros
+            valiosos miembros.
+          </p>
+        </motion.div>
+
+        {/* BENEFITS */}
+        <motion.div
+          className="mt-5 items-center justify-between gap-8 md:flex"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={container}
+        >
+          {benefits.map((benefit) => (
+            <BenefitItem
+              key={benefit.title}
+              icon={benefit.icon}
+              title={benefit.title}
+              description={benefit.description}
+              setSelectedPage={setSelectedPage}
             />
-            {/* DESCRIPTION    */}
-            <div>
-              {/* TITLE */}
-              <div className="relative">
-                <div className="before:absolute before:-left-20 before:-top-20 before:z-[1] before:content-abstractwaves ">
-                  <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 1 }}
-                    variants={{
-                      hidden: { opacity: 0, x: -50 },
-                      visible: { opacity: 1, x: 0 },
-                    }}
-                  >
-                    <h1 className={`${textTitle}`}>
-                      ÚNETE A NOSOTROS, <br /> VOLVAMONOS{" "}
-                      <span className="text-primary-500"> FIT</span>
-                    </h1>
-                  </motion.div>
-                </div>
+          ))}
+        </motion.div>
+
+        {/* GRAPHICS AND DESCRIPTION */}
+        <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
+          {/* GRAPHIC */}
+          <img
+            className="mx-auto"
+            alt="benefits-page-graphic"
+            src={BenefitsPageGraphic}
+          />
+
+          {/* DESCRIPTION */}
+          <div>
+            {/* TITLE */}
+            <div className="relative">
+              <div className="before:absolute before:-left-20 before:-top-20 before:z-[1] before:content-abstractwaves">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.5 }}
+                  variants={{
+                    hidden: { opacity: 0, x: 50 },
+                    visible: { opacity: 1, x: 0 },
+                  }}
+                >
+                  <h1 className="font-montserrat text-2xl font-bold">
+                    MILLIONS OF HAPPY MEMBERS GETTING{" "}
+                    <span className="text-primary-700">FIT</span>
+                  </h1>
+                </motion.div>
               </div>
-              {/* DESC */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 1 }}
-                variants={{
-                  hidden: { opacity: 0, x: -50 },
-                  visible: { opacity: 1, x: 0 },
-                }}
-                className="my-5"
-              >
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Maxime officiis est accusantium ad. Quod, eos iste. Delectus
-                  ad dolorem omnis quos iusto ut, a eius aliquid dolores, maxime
-                  earum quis.
-                </p>
-              </motion.div>
-              {/* BUTTON */}
-              <motion.div
-                className="relative mt-16"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 1 }}
-                variants={{
-                  hidden: { opacity: 0, x: -50 },
-                  visible: { opacity: 1, x: 0 },
-                }}
-              >
-                <div className="before:absolute before:-bottom-20 before:right-10 before:z-[1] before:content-sparkles">
-                  <ActionButton setSelectedPage={setSelectedPage}>
-                    Join Now
-                  </ActionButton>
-                </div>
-              </motion.div>
+            </div>
+
+            {/* DESCRIPT */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
+              <p className="my-5">
+                Nascetur aenean massa auctor tincidunt. Iaculis potenti amet
+                egestas ultrices consectetur adipiscing ultricies enim. Pulvinar
+                fames vitae vitae quis. Quis amet vulputate tincidunt at in
+                nulla nec. Consequat sed facilisis dui sit egestas ultrices
+                tellus. Ullamcorper arcu id pretium sapien proin integer nisl.
+                Felis orci diam odio.
+              </p>
+              <p className="mb-5">
+                Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
+                tellus quam porttitor. Mauris velit euismod elementum arcu neque
+                facilisi. Amet semper tortor facilisis metus nibh. Rhoncus sit
+                enim mattis odio in risus nunc.
+              </p>
+            </motion.div>
+
+            {/* BUTTON */}
+            <div className="relative mt-16">
+              <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
+                <ActionButton setSelectedPage={setSelectedPage}>
+                  Join Now
+                </ActionButton>
+              </div>
             </div>
           </div>
-        </motion.div>
-      </section>
-    </div>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 

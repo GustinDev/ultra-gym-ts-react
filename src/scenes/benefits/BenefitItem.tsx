@@ -18,17 +18,15 @@ const BenefitItem = ({ icon, title, description, setSelectedPage }: Props) => {
   return (
     <motion.div
       variants={childVariant}
-      className=" mt-5 w-[400px] rounded-md border-2 border-gray-100 px-5 py-16 text-center"
+      className=" ml-2 w-[400px] rounded-md border-2 border-gray-300 px-5 py-16 text-left"
     >
-      <div className="mb.4 flex justify-center">
-        <div className="rounded-full border-2 border-gray-100 bg-primary-100 p-4">
-          {icon}
-        </div>
+      <div className=" flex justify-center">
+        <div className="rounded-full border-2 border-gray-200  p-4">{icon}</div>
       </div>
       <h4 className="font-bold">{title}</h4>
       <p className="my-3">{description}</p>
       <AnchorLink
-        className="text-md font-bold text-primary-500 underline hover:text-secondary-500"
+        className="text-md font-bold text-primary-700 underline hover:text-primary-500"
         onClick={() => setSelectedPage(SelectedPage.Contáctanos)}
         href={`#${SelectedPage.Contáctanos}`}
       >

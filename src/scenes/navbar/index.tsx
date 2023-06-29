@@ -25,11 +25,13 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
   //Nav BG
 
-  const navbarBackground = isTopOfPage ? "" : "bg-prymary-400 drop-shadow";
+  const navbarBackground = isTopOfPage ? "" : "bg-nav-color drop-shadow";
 
   return (
-    <nav className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
-      <div className={`${navbarBackground} ${flexBetween} mx-auto w-5/6`}>
+    <nav
+      className={`${flexBetween} ${navbarBackground} fixed top-0 z-30 w-full py-6`}
+    >
+      <div className={` ${flexBetween} mx-auto w-5/6`}>
         <div className={`${flexBetween} w-full gap-16`}>
           {/* LEFT */}
           <img src={Logo} alt="logo" />
@@ -39,22 +41,26 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
             <div className={`${flexBetween} w-full`}>
               <div className={`${flexBetween} gap-8 text-sm font-bold`}>
                 <Link
+                  name="Inicio"
                   page="Inicio"
                   selectedPage={selectedPage}
                   setSelectedPage={setSelectedPage}
                 />
                 <Link
+                  name="Beneficios"
                   page="Beneficios"
                   selectedPage={selectedPage}
                   setSelectedPage={setSelectedPage}
                 />
                 <Link
+                  name="Clases"
                   page="Clases"
                   selectedPage={selectedPage}
                   setSelectedPage={setSelectedPage}
                 />
                 <Link
-                  page="Contáctanos"
+                  name="Contáctanos"
+                  page="Contactanos"
                   selectedPage={selectedPage}
                   setSelectedPage={setSelectedPage}
                 />
@@ -62,7 +68,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
               <div className={`${flexBetween} gap-8 text-sm font-bold`}>
                 <p>Ingresa</p>
                 <ActionButton setSelectedPage={setSelectedPage}>
-                  Membresia
+                  Únete
                 </ActionButton>
               </div>
             </div>
@@ -95,22 +101,26 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
           </div>
           <div className={`ml-[33%] flex flex-col gap-10 text-2xl`}>
             <Link
+              name="Inicio"
               page="Inicio"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <Link
+              name="Beneficios"
               page="Beneficios"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <Link
+              name="Clases"
               page="Clases"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
             <Link
-              page="Contáctanos"
+              name="Contáctanos"
+              page="Contactanos"
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
             />
