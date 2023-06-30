@@ -1,9 +1,11 @@
-import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import Link from "./link";
-import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
+import { SelectedPage } from "@/shared/types";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useState } from "react";
+import Link from "./link";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   selectedPage: SelectedPage;
@@ -16,6 +18,11 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const navbarBackground = isTopOfPage ? "" : "bg-nav-color drop-shadow";
+
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+
+  const fullName = user?.name;
+  const firstName = fullName?.split(" ")[0];
 
   return (
     <nav>
@@ -62,10 +69,29 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                   </div>
                 </div>
                 <div className={`${flexBetween} gap-8 font-bold`}>
-                  <p className="font-bold">Sign In</p>
-                  <ActionButton setSelectedPage={setSelectedPage}>
-                    Contacto
-                  </ActionButton>
+                  {isAuthenticated ? (
+                    <>
+                      <p className="font-bold">{firstName}</p>
+                      <img
+                        className="w-10 rounded-full"
+                        src={user?.picture}
+                        alt={user?.name}
+                      />
+                      <button
+                        onClick={() =>
+                          logout({
+                            logoutParams: { returnTo: window.location.origin },
+                          })
+                        }
+                      >
+                        Cerrar sesión
+                      </button>
+                    </>
+                  ) : (
+                    <button onClick={() => loginWithRedirect()}>
+                      Ingresar
+                    </button>
+                  )}
                 </div>
               </div>
             ) : (
@@ -119,6 +145,27 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
+              {isAuthenticated ? (
+                <>
+                  <p className="font-bold">{firstName}</p>
+                  <img
+                    className="w-10 rounded-full"
+                    src={user?.picture}
+                    alt={user?.name}
+                  />
+                  <button
+                    onClick={() =>
+                      logout({
+                        logoutParams: { returnTo: window.location.origin },
+                      })
+                    }
+                  >
+                    Cerrar sesión
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => loginWithRedirect()}>Ingresar</button>
+              )}
             </div>
           </div>
         </div>
