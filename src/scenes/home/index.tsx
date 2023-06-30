@@ -41,12 +41,9 @@ const Home = ({ setSelectedPage }: Props) => {
             >
               <div className="relative">
                 <div className="before:absolute before:-left-20  before:-right-8 before:-top-20 before:z-[-1] md:before:content-evolvetext">
-                  <h1 className="-ml-2 font-montserrat text-8xl font-bold text-home-title-color underline decoration-primary-700">
+                  <h1 className="-ml-2 text-start font-montserrat text-4xl font-bold text-home-title-color underline decoration-primary-700 sm:text-7xl md:text-8xl">
                     ULTRAGYM
                   </h1>
-                  <p className="font-bold text-title-color ">
-                    FUERZA Y DISCIPLINA.
-                  </p>
                 </div>
               </div>
               <p className="mt-8 text-lg ">
@@ -79,8 +76,8 @@ const Home = ({ setSelectedPage }: Props) => {
         {/* SPONSOR */}
       </section>
 
-      <div className="mt-5 h-[150px] w-full">
-        <div className="mx-auto flex w-5/6 items-center justify-between">
+      <div className="mb-20 mt-5 h-[150px] w-full sm:mb-0">
+        <div className="mx-auto flex w-5/6 flex-col items-center justify-between sm:flex-row">
           <img src={Nordictrack} height={"100px"} width={"130px"} alt="nordi" />
           <img src={LifeFitness} height={"100px"} width={"130px"} alt="life" />
           <img src={Cybex} height={"100px"} width={"130px"} alt="Cybex" />

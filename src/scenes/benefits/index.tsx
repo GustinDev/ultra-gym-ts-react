@@ -59,7 +59,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <h1 className="font-montserrat text-6xl font-bold text-title-color">
+          <h1 className="font-montserrat text-2xl font-bold text-title-color sm:text-6xl">
             MÁS QUE UN{" "}
             <span className="text-primary-700 underline">GIMNASIO</span>
           </h1>
@@ -73,7 +73,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
 
         {/* BENEFITS */}
         <motion.div
-          className="mt-5 items-center justify-between gap-8 md:flex"
+          className="mt-5 flex flex-col items-center justify-between gap-8 md:flex md:flex-row"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -115,8 +115,8 @@ const Benefits = ({ setSelectedPage }: Props) => {
                   }}
                 >
                   <h1 className="font-montserrat text-2xl font-bold">
-                    MILLIONS OF HAPPY MEMBERS GETTING{" "}
-                    <span className="text-primary-700">FIT</span>
+                    ÚNETE AL MOVIMIENTO{" "}
+                    <span className="text-primary-700">VOLVÁMONOS FIT</span>
                   </h1>
                 </motion.div>
               </div>
@@ -134,26 +134,25 @@ const Benefits = ({ setSelectedPage }: Props) => {
               }}
             >
               <p className="my-5">
-                Nascetur aenean massa auctor tincidunt. Iaculis potenti amet
-                egestas ultrices consectetur adipiscing ultricies enim. Pulvinar
-                fames vitae vitae quis. Quis amet vulputate tincidunt at in
-                nulla nec. Consequat sed facilisis dui sit egestas ultrices
-                tellus. Ullamcorper arcu id pretium sapien proin integer nisl.
-                Felis orci diam odio.
+                Descubre el verdadero poder de estar en forma en nuestro
+                gimnasio. No se trata solo de una cuestión de apariencia, sino
+                de cuidar de tu bienestar integral. Al mantenerte activo y en
+                forma, fortaleces tu cuerpo, mejoras tu salud, aumentas tu
+                energía y vitalidad, y te empoderas para enfrentar cualquier
+                desafío.
               </p>
               <p className="mb-5">
-                Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
-                tellus quam porttitor. Mauris velit euismod elementum arcu neque
-                facilisi. Amet semper tortor facilisis metus nibh. Rhoncus sit
-                enim mattis odio in risus nunc.
+                Únete a nosotros y experimenta una transformación que trasciende
+                lo físico. ¡Te esperamos para ayudarte a alcanzar tu mejor
+                versión!
               </p>
             </motion.div>
 
             {/* BUTTON */}
             <div className="relative mt-16">
-              <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
+              <div className="font-bold before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
                 <ActionButton setSelectedPage={setSelectedPage}>
-                  Join Now
+                  ¡Únete!
                 </ActionButton>
               </div>
             </div>

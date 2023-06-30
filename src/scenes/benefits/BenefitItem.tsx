@@ -18,7 +18,7 @@ const BenefitItem = ({ icon, title, description, setSelectedPage }: Props) => {
   return (
     <motion.div
       variants={childVariant}
-      className=" ml-2 w-[400px] rounded-md border-2 border-gray-300 px-5 py-16 text-left"
+      className=" mb-5 ml-2 w-[300px]  rounded-md border-2 border-gray-300 px-5 py-16 text-left sm:w-[400px]"
     >
       <div className=" flex justify-center">
         <div className="rounded-full border-2 border-gray-200  p-4">{icon}</div>
