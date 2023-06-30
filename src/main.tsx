@@ -1,12 +1,16 @@
-import React from "react";
+import { Auth0Provider } from "@auth0/auth0-react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
+import React from "react";
 import "./index.css";
-import { Auth0Provider, Auth0ProviderOptions } from "@auth0/auth0-react";
 
-//auth
+interface MyAuth0ProviderOptions {
+  domain: string;
+  clientId: string;
+  redirectUri: string;
+}
 
-const auth0Config: Auth0ProviderOptions = {
+const auth0Config: MyAuth0ProviderOptions = {
   domain: "dev-7iyxi3k0m3phnjow.us.auth0.com",
   clientId: "keK9XqJcxxDzNTYQyqQZ5AIo0uVzLmKY",
   redirectUri: window.location.origin,

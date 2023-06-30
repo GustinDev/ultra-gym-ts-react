@@ -1,11 +1,9 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import ActionButton from "@/shared/ActionButton";
 import { SelectedPage } from "@/shared/types";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import Link from "./link";
-import { useNavigate } from "react-router-dom";
 
 type Props = {
   selectedPage: SelectedPage;
