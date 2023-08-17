@@ -41,7 +41,7 @@ const Classes = ({ setSelectedPage }: Props) => {
           </p>
         </div>
       </motion.div>
-      <div className="mx-auto mt-10 h-[353px] w-5/6 overflow-x-auto overflow-y-hidden hover:cursor-pointer">
+      <div className="z-10  mx-auto mt-10 h-[353px] w-5/6 overflow-x-auto overflow-y-hidden hover:cursor-pointer">
         <ul className="w-[1500px] whitespace-nowrap">
           {classes.map((item: ClassType, index) => (
             <Class
